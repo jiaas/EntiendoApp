@@ -55,7 +55,9 @@ Widget _Notifications() {
           ),
           MaterialButton(
             height: 50,
-            onPressed: () {},
+            onPressed: () {
+              print("ACEPTAR");
+            },
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -89,13 +91,21 @@ Widget _Notifications() {
           SizedBox(
             height: 30,
           ),
-          Text(
-            "OMITIR",
-            style: TextStyle(
-              fontFamily: "HKGrotesk-Bold",
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Color(0xFF344356).withOpacity(0.6),
+          FlatButton(
+            onPressed: () {
+              print("OMITIR");
+            },
+            shape: new RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(10.0),
+            ),
+            child: Text(
+              "OMITIR",
+              style: TextStyle(
+                fontFamily: "HKGrotesk-Bold",
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Color(0xFF344356).withOpacity(0.6),
+              ),
             ),
           )
         ],
