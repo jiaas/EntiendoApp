@@ -61,11 +61,20 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-   - family: HKGrotesk
+   - family: HKGrotesk-Regular
      fonts:
        - asset: assets/fonts/HKGrotesk-Regular.otf
+
+   - family: HKGrotesk-Light
+     fonts:
        - asset: assets/fonts/HKGrotesk-Light.otf
+
+   - family: HKGrotesk-Medium
+     fonts:
        - asset: assets/fonts/HKGrotesk-Medium.otf
+
+   - family: HKGrotesk-Bold
+     fonts:
        - asset: assets/fonts/HKGrotesk-Bold.otf
 
   #         style: italic

@@ -41,7 +41,7 @@ Widget _Notifications() {
             height: 25,
           ),
           Text(
-            "Entiendo es una aplicación inteligente que te mantendrá notificado acerca de los cursos, noticias, tareas y eventos.",
+            "Entiendo es una aplicación inteligente que te notificará acerca de los cursos, noticias, tareas y eventos.",
             style: TextStyle(
               fontFamily: "HKGrotesk-Medium",
               fontSize: 20,
@@ -51,9 +51,10 @@ Widget _Notifications() {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 50,
+            height: 80,
           ),
-          FlatButton(
+          MaterialButton(
+            height: 50,
             onPressed: () {},
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -66,10 +67,17 @@ Widget _Notifications() {
                       fontSize: 16,
                       color: Colors.white),
                 ),
+                SizedBox(
+                  width: 10,
+                ),
                 CircleAvatar(
-                  child: Icon(Icons.arrow_forward_ios),
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                  ),
                   backgroundColor: Color(0xFF3D56F0),
                   foregroundColor: Colors.white,
+                  radius: 15,
                 )
               ],
             ),
@@ -78,6 +86,18 @@ Widget _Notifications() {
               borderRadius: new BorderRadius.circular(10.0),
             ),
           ),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            "OMITIR",
+            style: TextStyle(
+              fontFamily: "HKGrotesk-Bold",
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: Color(0xFF344356).withOpacity(0.6),
+            ),
+          )
         ],
       ),
     ),
