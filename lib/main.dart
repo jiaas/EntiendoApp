@@ -17,9 +17,13 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color(0xFFF3F5F9),
-        body: Calendario(),
-      ),
+          backgroundColor: Color(0xFFF3F5F9),
+          body: Column(
+            children: <Widget>[
+              Calendario(),
+              Busqueda(),
+            ],
+          )),
     );
   }
 }
@@ -83,12 +87,78 @@ class _CalendarioState extends State<Calendario> {
                       });
                     },
                   ),
-                  Text("El dia $fechaString"),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Busqueda extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 315,
+      height: 70,
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.4),
+            spreadRadius: 1,
+            blurRadius: 25,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            SizedBox(
+              width: 15,
+            ),
+            Text(
+              "Javier Quinter|",
+              style: TextStyle(
+                fontSize: 20,
+                fontFamily: "HKGrotesk-Medium",
+                color: Color(0xFF344356),
+              ),
+            ),
+            Spacer(),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xFF5468FF),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.4),
+                    spreadRadius: 1,
+                    blurRadius: 25,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Icon(
+                Icons.search,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            )
+          ],
+        ),
       ),
     );
   }
