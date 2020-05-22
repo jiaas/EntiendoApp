@@ -4,65 +4,60 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Expanded(
-        child: Container(
-          width: 300,
-          height: 55,
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.4),
-                spreadRadius: 1,
-                blurRadius: 25,
-                offset: Offset(0, 3), // changes position of shadow
-              ),
-            ],
+      child: Container(
+        width: 300,
+        height: 60,
+        child: Card(
+          elevation: 1.5,
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(15.0),
+            ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                SizedBox(
-                  width: 10,
-                ),
-                Flexible(
-                  flex: 100,
-                  child: TextField(
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: "HKGrotesk-Medium",
-                      color: Color(0xFF344356),
-                    ),
-                    decoration: null,
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 10,
                   ),
-                ),
-                Spacer(),
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xFF5468FF),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.4),
-                        spreadRadius: 1,
-                        blurRadius: 25,
-                        offset: Offset(0, 3), // changes position of shadow
+                  Flexible(
+                    flex: 100,
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: "HKGrotesk-Medium",
+                        color: Color(0xFF344356),
                       ),
-                    ],
+                      decoration: null,
+                    ),
                   ),
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.white,
-                    size: 25,
+                  Spacer(),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xFF5468FF),
+                    ),
+                    child: FlatButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(100.0),
+                      ),
+                      onPressed: () {
+                        print("presionado");
+                      },
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                        size: 25,
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

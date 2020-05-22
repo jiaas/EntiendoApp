@@ -52,7 +52,8 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.all(10),
+                    elevation: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: Row(
                       children: <Widget>[
                         Container(
@@ -141,7 +142,8 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.all(10),
+                    elevation: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -154,7 +156,7 @@ class _MyAppState extends State<MyApp> {
                             "10:30-11:30 ",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Color(0xFF344356).withOpacity(0.8),
                             ),
                           ),
@@ -212,7 +214,8 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.all(10),
+                    elevation: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -225,7 +228,7 @@ class _MyAppState extends State<MyApp> {
                             "11:30-12:30 ",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Color(0xFF344356).withOpacity(0.8),
                             ),
                           ),
@@ -282,7 +285,8 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.all(10),
+                    elevation: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -295,7 +299,7 @@ class _MyAppState extends State<MyApp> {
                             "12:30-13:30",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Color(0xFF344356).withOpacity(0.8),
                             ),
                           ),
@@ -365,7 +369,8 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.all(10),
+                    elevation: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: Container(
                       height: 300,
                       margin: EdgeInsets.symmetric(
@@ -405,7 +410,8 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   Card(
-                    margin: EdgeInsets.all(10),
+                    elevation: 1.5,
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: Container(
                       height: 300,
                       margin: EdgeInsets.symmetric(

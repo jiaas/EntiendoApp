@@ -50,19 +50,31 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
           ),
           Container(
             margin: EdgeInsets.only(left: 10),
-            child: DatePicker(
-              DateTime.now(),
-              initialSelectedDate: DateTime.now(),
-              selectionColor: Color(0xFF5468FF),
-              selectedTextColor: Colors.white,
-              locale: "es_ES",
-              onDateChange: (date) {
-                setState(() {
-                  fecha = date;
-                  int dia = fecha.day;
-                  fechaString = dia.toString();
-                });
-              },
+            child: Card(
+              elevation: 1.5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15.0),
+                    bottomLeft: Radius.circular(15.0)),
+              ),
+              margin: EdgeInsets.symmetric(vertical: 0),
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: DatePicker(
+                  DateTime.now(),
+                  initialSelectedDate: DateTime.now(),
+                  selectionColor: Color(0xFF5468FF),
+                  selectedTextColor: Colors.white,
+                  locale: "es_ES",
+                  onDateChange: (date) {
+                    setState(() {
+                      fecha = date;
+                      int dia = fecha.day;
+                      fechaString = dia.toString();
+                    });
+                  },
+                ),
+              ),
             ),
           ),
         ],
