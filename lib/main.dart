@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'src/widgets/calendar_widget.dart';
+import 'src/widgets/search_bar_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,9 +28,16 @@ class _MyAppState extends State<MyApp> {
               child: SizedBox(height: 20),
             ),
             CalendarTimeline(),
-            //SearchBar(),
+            SizedBox(
+              height: 10,
+            ),
+            SearchBar(),
+            SizedBox(
+              height: 10,
+            ),
             Expanded(
               child: ListView(
+                padding: EdgeInsets.all(0),
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.only(left: 10),
@@ -54,7 +62,7 @@ class _MyAppState extends State<MyApp> {
                             horizontal: 5,
                           ),
                           child: Text(
-                            "10:30-11:30",
+                            "09:30-10:30",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
                               fontSize: 20,
@@ -66,7 +74,7 @@ class _MyAppState extends State<MyApp> {
                         Container(
                           height: 50,
                           child: VerticalDivider(
-                            color: Color(0xFF5468FF),
+                            color: Colors.green,
                             thickness: 5,
                           ),
                         ),
@@ -88,7 +96,7 @@ class _MyAppState extends State<MyApp> {
                             Container(
                               margin: EdgeInsets.only(left: 10),
                               child: Text(
-                                "Lenguaje y Comunicación",
+                                "Artes Visuales",
                                 style: TextStyle(
                                   fontFamily: "HKGrotesk-Medium",
                                   fontSize: 15,
@@ -125,7 +133,7 @@ class _MyAppState extends State<MyApp> {
                             horizontal: 5,
                           ),
                           child: Text(
-                            "11:30-12:30",
+                            "10:30-11:30 ",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
                               fontSize: 20,
@@ -137,7 +145,7 @@ class _MyAppState extends State<MyApp> {
                         Container(
                           height: 50,
                           child: VerticalDivider(
-                            color: Color(0xFF5468FF),
+                            color: Colors.red,
                             thickness: 5,
                           ),
                         ),
@@ -196,7 +204,7 @@ class _MyAppState extends State<MyApp> {
                             horizontal: 5,
                           ),
                           child: Text(
-                            "12:30-13:30",
+                            "11:30-12:30 ",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
                               fontSize: 20,
@@ -208,9 +216,80 @@ class _MyAppState extends State<MyApp> {
                         Container(
                             height: 50,
                             child: VerticalDivider(
-                              color: Color(0xFF5468FF),
+                              color: Colors.amber,
                               thickness: 5,
                             )),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text("Javier Quinteros",
+                                  style: TextStyle(
+                                    fontFamily: "HKGrotesk-Bold",
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF344356),
+                                  ),
+                                  textAlign: TextAlign.left),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(
+                                "Ciencias Sociales",
+                                style: TextStyle(
+                                  fontFamily: "HKGrotesk-Medium",
+                                  fontSize: 15,
+                                  color: Color(0xFF344356),
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(
+                                "Evaluación N°1",
+                                style: TextStyle(
+                                  fontFamily: "HKGrotesk-Medium",
+                                  fontSize: 15,
+                                  color: Color(0xFF344356),
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                            vertical: 20,
+                            horizontal: 5,
+                          ),
+                          child: Text(
+                            "12:30-13:30",
+                            style: TextStyle(
+                              fontFamily: "HKGrotesk-Medium",
+                              fontSize: 20,
+                              color: Color(0xFF344356).withOpacity(0.8),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10),
+                        ),
+                        Container(
+                          height: 50,
+                          child: VerticalDivider(
+                            color: Colors.amber,
+                            thickness: 5,
+                          ),
+                        ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -255,9 +334,6 @@ class _MyAppState extends State<MyApp> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 0,
-                  ),
                   Container(
                     margin: EdgeInsets.only(left: 10, top: 25),
                     child: Text(
@@ -270,8 +346,33 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 250,
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: Container(
+                      height: 300,
+                      margin: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 5,
+                      ),
+                      child: Center(
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              child: Image.asset("assets/images/free_time.png"),
+                            ),
+                            Text(
+                              "No tienes eventos, aprovecha tu tiempo libre.",
+                              style: TextStyle(
+                                fontFamily: "HKGrotesk-Medium",
+                                fontSize: 15,
+                                color: Color(0xFF344356).withOpacity(0.8),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      padding: EdgeInsets.all(10),
+                    ),
                   ),
                   Container(
                     margin: EdgeInsets.only(left: 10, top: 25),
@@ -285,9 +386,37 @@ class _MyAppState extends State<MyApp> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 250,
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: Container(
+                      height: 300,
+                      margin: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 5,
+                      ),
+                      child: Center(
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              child: Image.asset("assets/images/free_time.png"),
+                            ),
+                            Text(
+                              "No tienes eventos, aprovecha tu tiempo libre.",
+                              style: TextStyle(
+                                fontFamily: "HKGrotesk-Medium",
+                                fontSize: 15,
+                                color: Color(0xFF344356).withOpacity(0.8),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      padding: EdgeInsets.all(10),
+                    ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  )
                 ],
               ),
             ),

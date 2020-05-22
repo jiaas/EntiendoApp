@@ -27,14 +27,17 @@ class SearchBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 SizedBox(
-                  width: 15,
+                  width: 10,
                 ),
-                Text(
-                  "Javier Quinter|",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "HKGrotesk-Medium",
-                    color: Color(0xFF344356),
+                Flexible(
+                  flex: 100,
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: "HKGrotesk-Medium",
+                      color: Color(0xFF344356),
+                    ),
+                    decoration: null,
                   ),
                 ),
                 Spacer(),
@@ -59,9 +62,6 @@ class SearchBar extends StatelessWidget {
                     size: 25,
                   ),
                 ),
-                SizedBox(
-                  width: 10,
-                )
               ],
             ),
           ),
