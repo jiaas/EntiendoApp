@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
@@ -26,6 +27,7 @@ class SearchBar extends StatelessWidget {
                   Flexible(
                     flex: 100,
                     child: TextField(
+                      textCapitalization: TextCapitalization.sentences,
                       style: TextStyle(
                         fontSize: 20,
                         fontFamily: "HKGrotesk-Medium",

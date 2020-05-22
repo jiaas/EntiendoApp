@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'src/widgets/calendar_widget.dart';
-import 'src/widgets/search_bar_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,10 +30,7 @@ class _MyAppState extends State<MyApp> {
             SizedBox(
               height: 10,
             ),
-            SearchBar(),
-            SizedBox(
-              height: 10,
-            ),
+            //SearchBar(),
             Expanded(
               child: ListView(
                 padding: EdgeInsets.all(0),
