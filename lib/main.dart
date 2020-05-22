@@ -54,7 +54,6 @@ class _MyAppState extends State<MyApp> {
                   Card(
                     margin: EdgeInsets.all(10),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Container(
                           margin: EdgeInsets.symmetric(
@@ -65,7 +64,7 @@ class _MyAppState extends State<MyApp> {
                             "09:30-10:30",
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Medium",
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Color(0xFF344356).withOpacity(0.8),
                             ),
                           ),
@@ -115,6 +114,25 @@ class _MyAppState extends State<MyApp> {
                                   color: Color(0xFF344356),
                                 ),
                                 textAlign: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 25),
+                              child: CircleAvatar(
+                                backgroundColor: Color(0xFF5468FF),
+                                child: Text("7.0",
+                                    style: TextStyle(
+                                        fontFamily: "HKGrotesk-Medium",
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                    textAlign: TextAlign.left),
                               ),
                             ),
                           ],
