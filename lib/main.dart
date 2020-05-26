@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'src/widgets/calendar_widget.dart';
+import 'Event/ui/widgets/calendar_widget.dart';
 
 void main() {
   runApp(MyApp());
