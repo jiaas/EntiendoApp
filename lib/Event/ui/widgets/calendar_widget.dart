@@ -19,36 +19,34 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
       child: Column(
         children: <Widget>[
           Center(
-            child: FittedBox(
-              child: Container(
-                width: 360,
-                height: 100,
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "Hoy es Martes 26",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: "HKGrotesk-Bold",
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF344356),
-                      ),
+            child: Container(
+              width: 360,
+              height: 100,
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Hoy es Viernes 22",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "HKGrotesk-Bold",
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF344356),
                     ),
-                    SizedBox(
-                      height: 10,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "A Mayo le quedan 9 días, pero tu solo enfocate en ser feliz el día de hoy.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "HKGrotesk-Medium",
+                      fontSize: 20,
+                      color: Color(0xFF344356).withOpacity(0.8),
                     ),
-                    Text(
-                      "A Mayo le quedan 5 días, pero tu solo enfocate en ser feliz el día de hoy.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: "HKGrotesk-Medium",
-                        fontSize: 20,
-                        color: Color(0xFF344356).withOpacity(0.8),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

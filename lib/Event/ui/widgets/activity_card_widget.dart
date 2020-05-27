@@ -22,101 +22,113 @@ class ActivityCard extends StatefulWidget {
 class _ActivityCardState extends State<ActivityCard> {
   @override
   Widget build(BuildContext context) {
+    final _mediaQueryData = MediaQuery.of(context);
+    final screenWidth = _mediaQueryData.size.width;
+    final screenHeight = _mediaQueryData.size.height;
+
     return FittedBox(
       child: Card(
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         elevation: 1.5,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: 20,
-                  ),
-                  child: Text(
-                    widget.activityTime,
-                    style: TextStyle(
-                      fontFamily: "HKGrotesk-Medium",
-                      fontSize: 18,
-                      color: Color(0xFF344356).withOpacity(0.8),
-                    ),
-                  ),
-                ),
-              ),
-              ActivityDivider(widget.activityStatus),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(left: 10),
-                      child: Text(widget.studentName,
-                          style: TextStyle(
-                            fontFamily: "HKGrotesk-Bold",
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF344356),
-                          ),
-                          textAlign: TextAlign.left),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 10),
-                      child: Text(
-                        widget.activityCourse,
+        child: Container(
+          margin: EdgeInsets.symmetric(vertical: 20),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      minHeight: screenHeight * 0.08,
+                      minWidth: screenWidth * 0.3),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        widget.activityTime,
                         style: TextStyle(
                           fontFamily: "HKGrotesk-Medium",
-                          fontSize: 15,
-                          color: Color(0xFF344356),
+                          fontSize: 18,
+                          color: Color(0xFF344356).withOpacity(0.8),
                         ),
-                        textAlign: TextAlign.left,
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 10),
-                      child: Text(
-                        "Evaluación N°1",
-                        style: TextStyle(
-                          fontFamily: "HKGrotesk-Medium",
-                          fontSize: 15,
-                          color: Color(0xFF344356),
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(left: 25),
-                      child: CircleAvatar(
-                        backgroundColor: Color(0xFF5468FF),
-                        child: Text("7.0",
+                ActivityDivider(widget.activityStatus),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      minHeight: screenHeight * 0.08,
+                      minWidth: screenWidth * 0.3),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text(widget.studentName,
                             style: TextStyle(
-                                fontFamily: "HKGrotesk-Medium",
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                              fontFamily: "HKGrotesk-Bold",
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF344356),
+                            ),
                             textAlign: TextAlign.left),
                       ),
-                    ),
-                  ],
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text(
+                          widget.activityCourse,
+                          style: TextStyle(
+                            fontFamily: "HKGrotesk-Medium",
+                            fontSize: 15,
+                            color: Color(0xFF344356),
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text(
+                          "Evaluación N°1",
+                          style: TextStyle(
+                            fontFamily: "HKGrotesk-Medium",
+                            fontSize: 15,
+                            color: Color(0xFF344356),
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      minHeight: screenHeight * 0.08,
+                      minWidth: screenWidth * 0.3),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(left: 25),
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xFF5468FF),
+                          child: Text("7.0",
+                              style: TextStyle(
+                                  fontFamily: "HKGrotesk-Medium",
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textAlign: TextAlign.left),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -34,15 +34,15 @@ class ActivityList extends StatelessWidget {
           ),
           ActivityCard(
             "completed",
-            "09:30-10:30",
+            "10:30-11:30",
             "Artes Visuales",
             "Evaluación N°1",
             "Lucas Hernández",
           ),
           ActivityCard(
             "completed",
-            "09:30-10:30",
-            "Artes Visuales",
+            "11:30-12:30",
+            "Ciencias Sociales",
             "Evaluación N°1",
             "Valentina Gallardo",
           ),
