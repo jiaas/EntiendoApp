@@ -95,3 +95,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
     );
   }
 }
+
+DateTime getDate() {
+  return fecha;
+}

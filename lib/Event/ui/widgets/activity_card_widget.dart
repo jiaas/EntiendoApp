@@ -1,18 +1,11 @@
+import 'package:entiendo/Event/model/event_model.dart';
 import 'package:flutter/material.dart';
 
 class ActivityCard extends StatefulWidget {
-  String activityStatus = "";
-  String activityTime = "";
-  String activityCourse = "";
-  String activityName = "";
-  String studentName = "";
+  Event event;
 
   ActivityCard(
-    this.activityStatus,
-    this.activityTime,
-    this.activityCourse,
-    this.activityName,
-    this.studentName,
+    this.event,
   );
 
   @override
@@ -48,7 +41,7 @@ class _ActivityCardState extends State<ActivityCard> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        widget.activityTime,
+                        widget.event.eventSchedule,
                         style: TextStyle(
                           fontFamily: "HKGrotesk-Medium",
                           fontSize: 18,
@@ -58,7 +51,7 @@ class _ActivityCardState extends State<ActivityCard> {
                     ],
                   ),
                 ),
-                ActivityDivider(widget.activityStatus),
+                ActivityDivider(widget.event.eventStatus),
                 ConstrainedBox(
                   constraints: BoxConstraints(
                       minHeight: screenHeight * 0.08,
@@ -68,7 +61,7 @@ class _ActivityCardState extends State<ActivityCard> {
                     children: <Widget>[
                       Container(
                         margin: EdgeInsets.only(left: 10),
-                        child: Text(widget.studentName,
+                        child: Text(widget.event.studentName,
                             style: TextStyle(
                               fontFamily: "HKGrotesk-Bold",
                               fontSize: 20,
@@ -80,7 +73,7 @@ class _ActivityCardState extends State<ActivityCard> {
                       Container(
                         margin: EdgeInsets.only(left: 10),
                         child: Text(
-                          widget.activityCourse,
+                          widget.event.courseName,
                           style: TextStyle(
                             fontFamily: "HKGrotesk-Medium",
                             fontSize: 15,

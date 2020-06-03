@@ -1,3 +1,4 @@
+import 'package:entiendo/Event/repositories/events_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,7 @@ class SearchBar extends StatelessWidget {
                     ),
                     onPressed: () {
                       print("presionado");
+                      _getEvents();
                     },
                     child: Icon(
                       Icons.search,
@@ -67,5 +69,10 @@ class SearchBar extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _getEvents() {
+    final eventsProvider = new EventsProvider();
+    eventsProvider.getEvents();
   }
 }
