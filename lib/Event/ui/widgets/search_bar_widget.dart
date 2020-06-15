@@ -1,5 +1,3 @@
-import 'package:entiendo/Event/repositories/events_provider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
@@ -52,10 +50,7 @@ class SearchBar extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(100.0),
                     ),
-                    onPressed: () {
-                      print("presionado");
-                      _getEvents();
-                    },
+                    onPressed: () {},
                     child: Icon(
                       Icons.search,
                       color: Colors.white,
@@ -69,10 +64,5 @@ class SearchBar extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _getEvents() {
-    final eventsProvider = new EventsProvider();
-    eventsProvider.getEvents();
   }
 }

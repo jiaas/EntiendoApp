@@ -1,11 +1,13 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:entiendo/Event/bloc/event_provider.dart';
+import 'package:entiendo/Event/ui/pages/teacher_events_page.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import 'search_bar_widget.dart';
 
 DateTime fecha = DateTime.now();
-int dia = fecha.day;
-String fechaString = dia.toString();
 
 class CalendarTimeline extends StatefulWidget {
   @override
@@ -13,6 +15,18 @@ class CalendarTimeline extends StatefulWidget {
 }
 
 class _CalendarTimelineState extends State<CalendarTimeline> {
+  TeacherEventsPage teacherEventsPage;
+
+  Widget currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    teacherEventsPage = TeacherEventsPage();
+
+    currentPage = teacherEventsPage;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -75,8 +89,15 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                         onDateChange: (date) {
                           setState(() {
                             fecha = date;
-                            int dia = fecha.day;
-                            fechaString = dia.toString();
+
+                            String date2 = DateFormat("dd-MM-yyyy").format(
+                              DateTime.parse(
+                                date.toString(),
+                              ),
+                            );
+
+                            Provider.of<EventProvider>(context, listen: false)
+                                .changeDate(date2);
                           });
                         },
                       ),
@@ -94,8 +115,4 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
       ),
     );
   }
-}
-
-DateTime getDate() {
-  return fecha;
 }

@@ -1,3 +1,4 @@
+import 'package:entiendo/Event/bloc/event_provider.dart';
 import 'package:entiendo/Event/model/event_model.dart';
 import 'package:flutter/material.dart';
 

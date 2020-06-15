@@ -1,4 +1,5 @@
 class Event {
+  //Properties
   String eventDate;
   String eventSchedule;
   String courseName;
@@ -10,6 +11,7 @@ class Event {
   String eventStatus;
   String partOfDay;
 
+  //Constructor
   Event({
     this.eventDate,
     this.eventSchedule,
@@ -23,6 +25,21 @@ class Event {
     this.partOfDay,
   });
 
+  //Parse a <- List of Events -> from Json List
+  List<Event> getEventsFromJsonList(List<dynamic> jsonList) {
+    List<Event> eventsList = new List();
+    if (jsonList == null) {
+      eventsList = [];
+    } else {
+      for (var item in jsonList) {
+        final event = new Event.fromJsonMap(item);
+        eventsList.add(event);
+      }
+    }
+    return eventsList;
+  }
+
+  //Parse <-One Event-> from Json Map
   Event.fromJsonMap(Map<String, dynamic> json) {
     eventDate = json['eventDate'];
     eventSchedule = json['eventSchedule'];
@@ -34,19 +51,5 @@ class Event {
     proffesorRut = json['proffesorRut'];
     eventStatus = json['eventStatus'];
     partOfDay = json['partOfDay'];
-  }
-
-  List<Event> getEvents(List<dynamic> jsonList) {
-    List<Event> eventsList = new List();
-    if (jsonList == null) {
-      eventsList = [];
-    } else {
-      for (var item in jsonList) {
-        final event = new Event.fromJsonMap(item);
-        eventsList.add(event);
-      }
-    }
-
-    return eventsList;
   }
 }
