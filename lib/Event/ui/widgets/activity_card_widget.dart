@@ -42,7 +42,7 @@ class _ActivityCardState extends State<ActivityCard> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        widget.event.eventSchedule,
+                        widget.event.eventStartTime + "-" + widget.event.eventEndTime,
                         style: TextStyle(
                           fontFamily: "HKGrotesk-Medium",
                           fontSize: 18,
@@ -86,7 +86,7 @@ class _ActivityCardState extends State<ActivityCard> {
                       Container(
                         margin: EdgeInsets.only(left: 10),
                         child: Text(
-                          "Evaluación N°1",
+                          widget.event.eventName,
                           style: TextStyle(
                             fontFamily: "HKGrotesk-Medium",
                             fontSize: 15,

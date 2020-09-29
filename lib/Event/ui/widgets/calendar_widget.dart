@@ -1,6 +1,7 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:entiendo/Event/bloc/event_provider.dart';
 import 'package:entiendo/Event/ui/pages/teacher_events_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -32,36 +33,25 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
     return Container(
       child: Column(
         children: <Widget>[
-          Center(
-            child: Container(
-              width: 360,
-              height: 100,
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "Hoy es Viernes 22",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: "HKGrotesk-Bold",
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF344356),
-                    ),
+          Container(
+            width: 360,
+            height: 50,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "Hoy es Viernes 22",
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontFamily: "HKGrotesk-Bold",
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF344356),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "A Mayo le quedan 9 días, pero tu solo enfocate en ser feliz el día de hoy.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: "HKGrotesk-Medium",
-                      fontSize: 20,
-                      color: Color(0xFF344356).withOpacity(0.8),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
             ),
           ),
           Container(

@@ -80,7 +80,7 @@ class ActivityList extends StatelessWidget {
 
 Widget getEvents(List<Event> eventos, String partOfDay) {
   if (eventos.where((e) => e.partOfDay == partOfDay).toList().length > 0) {
-    eventos.sort((a, b) => a.eventSchedule.compareTo(b.eventSchedule));
+    eventos.sort((a, b) => a.eventEndTime.compareTo(b.eventStartTime));
     return new Column(
         children: eventos
             .map((item) => new ActivityCard(item))
