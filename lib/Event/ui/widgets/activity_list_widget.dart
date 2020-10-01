@@ -17,56 +17,7 @@ class ActivityList extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.all(0),
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(
-                top: 10,
-                bottom: 10,
-                left: 10,
-              ),
-              child: Text(
-                "En la mañana",
-                style: TextStyle(
-                  fontFamily: "HKGrotesk-Bold",
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF344356),
-                ),
-              ),
-            ),
-            getEvents(this.events, "morning"),
-            Container(
-              margin: EdgeInsets.only(
-                top: 15,
-                bottom: 10,
-                left: 10,
-              ),
-              child: Text(
-                "Por la tarde",
-                style: TextStyle(
-                  fontFamily: "HKGrotesk-Bold",
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF344356),
-                ),
-              ),
-            ),
-            getEvents(this.events, "afternoon"),
-            Container(
-              margin: EdgeInsets.only(left: 10, top: 25),
-              child: Text(
-                "En la noche",
-                style: TextStyle(
-                  fontFamily: "HKGrotesk-Bold",
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF344356),
-                ),
-              ),
-            ),
-            getEvents(this.events, "night"),
-            SizedBox(
-              height: 30,
-            )
+            getEvents(this.events),
           ],
         ),
       ),
@@ -78,13 +29,12 @@ class ActivityList extends StatelessWidget {
   }
 }
 
-Widget getEvents(List<Event> eventos, String partOfDay) {
-  if (eventos.where((e) => e.partOfDay == partOfDay).toList().length > 0) {
+Widget getEvents(List<Event> eventos) {
+  if (eventos.toList().length > 0) {
     eventos.sort((a, b) => a.eventEndTime.compareTo(b.eventStartTime));
     return new Column(
         children: eventos
             .map((item) => new ActivityCard(item))
-            .where((e) => e.event.partOfDay == partOfDay)
             .toList());
   } else {
     return Card(

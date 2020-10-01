@@ -1,7 +1,7 @@
 class Event {
   //Properties
+  int eventId;
   String eventDate;
-
   String eventStartTime;
   String eventEndTime;
   String courseName;
@@ -11,12 +11,11 @@ class Event {
   String studentName;
   String proffesorRut;
   String eventStatus;
-  String partOfDay;
 
   //Constructor
   Event({
+    this.eventId,
     this.eventDate,
-
     this.eventStartTime,
     this.eventEndTime,
     this.courseName,
@@ -26,7 +25,6 @@ class Event {
     this.studentName,
     this.proffesorRut,
     this.eventStatus,
-    this.partOfDay,
   });
 
   //Parse a <- List of Events -> from Json List
@@ -45,17 +43,17 @@ class Event {
 
   //Parse <-One Event-> from Json Map
   Event.fromJsonMap(Map<String, dynamic> json) {
-    eventDate = json['date'];
-
-    eventStartTime = json['start_time'];
-    eventEndTime = json['end_time'];
+    eventId = json['event_id'];
+    eventName = json['event_name'];
+    eventDate = json['event_date'];
+    eventStartTime = json['event_start_time'];
+    eventEndTime = json['event_end_time'];
     courseName = "Matematicas";//json['courseName'];
-    eventName = json['name'];
+
     //eventScore = json['event_score'] / 1;
     studentRut = "19.232.871-3";//json['studentRut'];
     studentName = "Javier Quinteros";//json['studentName'];
-    proffesorRut = "10.140.244-4";json['proffesorRut'];
-    eventStatus = "completed"; //json['eventStatus'];
-    partOfDay = "morning";//json['partOfDay'];
+    proffesorRut = "10.140.244-4";//json['proffesorRut'];
+    eventStatus = json['status_name'];
   }
 }
