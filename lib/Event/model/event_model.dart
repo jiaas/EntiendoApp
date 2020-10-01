@@ -6,7 +6,7 @@ class Event {
   String eventEndTime;
   String courseName;
   String eventName;
-  double eventScore;
+  String eventScore;
   String studentRut;
   String studentName;
   String proffesorRut;
@@ -48,12 +48,10 @@ class Event {
     eventDate = json['event_date'];
     eventStartTime = json['event_start_time'];
     eventEndTime = json['event_end_time'];
-    courseName = "Matematicas";//json['courseName'];
-
-    //eventScore = json['event_score'] / 1;
-    studentRut = "19.232.871-3";//json['studentRut'];
-    studentName = "Javier Quinteros";//json['studentName'];
-    proffesorRut = "10.140.244-4";//json['proffesorRut'];
+    eventScore = json['event_score'];
+    courseName = json['course_name'];
     eventStatus = json['status_name'];
+    studentName = json['student_name'];
+
   }
 }

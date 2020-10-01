@@ -105,19 +105,7 @@ class _ActivityCardState extends State<ActivityCard> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(left: 25),
-                        child: CircleAvatar(
-                          backgroundColor: Color(0xFF5468FF),
-                          child: Text("7.0",
-                              style: TextStyle(
-                                  fontFamily: "HKGrotesk-Medium",
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              textAlign: TextAlign.left),
-                        ),
-                      ),
+                      EventScore(widget.event.eventScore),
                     ],
                   ),
                 ),
@@ -139,6 +127,28 @@ Widget ActivityDivider(String activityStatus) {
     ),
   );
 }
+
+Widget EventScore([String score]) {
+  if(score != null && double.tryParse(score) != null){
+    return Container(
+      margin: EdgeInsets.only(left: 25),
+      child: CircleAvatar(
+        backgroundColor: Color(0xFF5468FF),
+        child: Text(score,
+            style: TextStyle(
+                fontFamily: "HKGrotesk-Medium",
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white),
+            textAlign: TextAlign.left),
+      ),
+    );
+  }else{
+    return Container();
+  }
+
+}
+
 
 Color getColor(String activityStatus) {
   //This Widget return a Divider that helps to know the activity status.

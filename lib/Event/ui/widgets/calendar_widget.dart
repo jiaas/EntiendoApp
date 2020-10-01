@@ -35,7 +35,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
         children: <Widget>[
           Container(
             width: 360,
-            height: 50,
+            height: 70,
             child: Column(
               children: <Widget>[
                 Text(
@@ -70,6 +70,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Container(
+                      height: 95,
                       child: DatePicker(
                         DateTime.now(),
                         initialSelectedDate: DateTime.now(),
