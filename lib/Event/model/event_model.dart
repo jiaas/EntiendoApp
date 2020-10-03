@@ -11,6 +11,7 @@ class Event {
   String studentName;
   String proffesorRut;
   String eventStatus;
+  String eventDescription;
 
   //Constructor
   Event({
@@ -25,6 +26,7 @@ class Event {
     this.studentName,
     this.proffesorRut,
     this.eventStatus,
+    this.eventDescription,
   });
 
   //Parse a <- List of Events -> from Json List
@@ -48,6 +50,7 @@ class Event {
     eventDate = json['event_date'];
     eventStartTime = json['event_start_time'];
     eventEndTime = json['event_end_time'];
+    eventDescription = "Prueba numero uno correspondiente a la asignatura de lenguaje y comunicación.";
     eventScore = json['event_score'];
     courseName = json['course_name'];
     eventStatus = json['status_name'];
