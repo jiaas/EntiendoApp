@@ -2,7 +2,41 @@ import 'package:entiendo/Event/model/event_model.dart';
 import 'package:entiendo/Event/ui/widgets/activity_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class ActivityList extends StatelessWidget {
+class ActivityList extends StatefulWidget {
+  List<Event> events;
+
+  ActivityList(this.events);
+  @override
+  _ActivityListState createState() => _ActivityListState();
+}
+
+class _ActivityListState extends State<ActivityList> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: RefreshIndicator(
+        onRefresh: refresh,
+        child: ListView(
+          padding: EdgeInsets.all(0),
+          children: <Widget>[
+            getEvents(widget.events),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> refresh() {
+    return Future.value();
+  }
+}
+
+
+
+
+
+/*class ActivityList extends StatelessWidget {
   final List<Event> events;
 
   ActivityList(
@@ -27,11 +61,11 @@ class ActivityList extends StatelessWidget {
   Future<void> refresh() {
     return Future.value();
   }
-}
+}*/
 
 Widget getEvents(List<Event> eventos) {
   if (eventos.toList().length > 0) {
-    eventos.sort((a, b) => a.eventEndTime.compareTo(b.eventStartTime));
+    eventos.sort((a, b) => a.endTime.compareTo(b.startTime));
     return new Column(
         children: eventos
             .map((item) => new ActivityCard(item))

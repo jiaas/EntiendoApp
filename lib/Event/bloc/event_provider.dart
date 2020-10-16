@@ -24,9 +24,21 @@ class EventProvider extends ChangeNotifier {
     final response = await http.get(url);
     final decodedResponse = json.decode(response.body);
 
-    events = event.getEventsFromJsonList(decodedResponse);
+    events = event.getEventosFromJsonList(decodedResponse);
 
     return events;
+  }
+
+  Future changeEventStatus(Event event) async {
+    final url = Uri.http(_url, '/events/${event.id}', {'eventStatusId': event.eventStatus.id.toString()});
+    final response = await http.put(url);
+    notifyListeners();
+  }
+
+  Future deleteEvent(Event event) async{
+    final url = Uri.http(_url, '/events/${event.id}');
+    final response = await http.delete(url);
+    notifyListeners();
   }
 
   void changeDate(String newDate) {
