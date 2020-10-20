@@ -10,4 +10,9 @@ class EventType {
     this.id,
     this.name,
   });
+
+  EventType.fromJsonMap(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+  }
 }

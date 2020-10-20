@@ -13,4 +13,10 @@ class Evaluation {
     this.name,
     this.subject,
   });
+
+  Evaluation.fromJsonMap(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    if(json['subject'] != null) subject = Subject.fromJsonMap(json['subject']);
+  }
 }

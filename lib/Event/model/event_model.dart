@@ -48,14 +48,14 @@ class Event {
   Event.fromJsonMap(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    date = json['date'];
-    startTime = json['startTime'];
-    endTime = json['endTime'];
+    date = DateTime.parse(json['date']);
+    startTime = json['start_time'];
+    endTime = json['end_time'];
 
-    eventStatus = json['status'];
-    eventType = json['type'];
-    evaluation = json['evaluation'];
-    //asignatura.id = json['asignatura_id'];
+    if(json['status'] != null) eventStatus = EventStatus.fromJsonMap(json['status']);
+    if(json['type'] != null) eventType = EventType.fromJsonMap(json['type']);
+    if(json['evaluation'] != null) evaluation = Evaluation.fromJsonMap(json['evaluation']);
+
 
   }
 }

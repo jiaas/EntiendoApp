@@ -13,4 +13,10 @@ class Subject {
     this.name,
     this.grade
   });
+
+  Subject.fromJsonMap(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    grade = Grade.fromJsonMap(json['grade']);
+  }
 }

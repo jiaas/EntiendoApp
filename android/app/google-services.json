@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "131798349244",
+    "firebase_url": "https://entiendo-covid19.firebaseio.com",
+    "project_id": "entiendo-covid19",
+    "storage_bucket": "entiendo-covid19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131798349244:android:2903dc517d5cf5c32fa7b9",
+        "android_client_info": {
+          "package_name": "nora.cl.entiendo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131798349244-kfm6nd1cj0n6hhthj2ecmitka6n65u0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoJhzgR398hyuJgZ_nW--S-IkpyPU3TFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131798349244-kfm6nd1cj0n6hhthj2ecmitka6n65u0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
