@@ -17,6 +17,7 @@ class Event {
   EventStatus eventStatus = EventStatus();
   EventType eventType = EventType();
   Evaluation evaluation = Evaluation();
+  Subject subject = Subject();
 
   //Constructor
   Event({
@@ -27,7 +28,8 @@ class Event {
     this.endTime,
     this.eventStatus,
     this.eventType,
-    this.evaluation
+    this.evaluation,
+    this.subject
   });
 
   //Parse a <- List of Events -> from Json List
@@ -55,6 +57,7 @@ class Event {
     if(json['status'] != null) eventStatus = EventStatus.fromJsonMap(json['status']);
     if(json['type'] != null) eventType = EventType.fromJsonMap(json['type']);
     if(json['evaluation'] != null) evaluation = Evaluation.fromJsonMap(json['evaluation']);
+    if(json['subject'] != null) subject = Subject.fromJsonMap(json['subject']);
 
 
   }

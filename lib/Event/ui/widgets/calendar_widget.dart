@@ -34,27 +34,6 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
       child: Column(
         children: <Widget>[
           Container(
-            width: 360,
-            height: 70,
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Hoy es Viernes 22",
-                  textAlign: TextAlign.end,
-                  style: TextStyle(
-                    fontFamily: "HKGrotesk-Bold",
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF344356),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-          ),
-          Container(
             margin: EdgeInsets.only(left: 10),
             child: Card(
               elevation: 1.5,

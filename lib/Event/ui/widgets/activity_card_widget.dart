@@ -29,7 +29,6 @@ class _ActivityCardState extends State<ActivityCard> {
 
     return FittedBox(
       child: Slidable(
-        key: Key("hola"),
         actionPane: SlidableStrechActionPane(),
         actionExtentRatio: 0.25,
         child: Card(
@@ -50,18 +49,17 @@ class _ActivityCardState extends State<ActivityCard> {
             child: Container(
               margin: EdgeInsets.symmetric(vertical: 20),
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     ConstrainedBox(
                       constraints: BoxConstraints(
-                          minHeight: screenHeight * 0.08,
+                          minHeight: screenHeight * 0.3,
                           minWidth: screenWidth * 0.3),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
+                        children: [
                           Text(
                             widget.event.startTime +
                                 "-" +
@@ -81,11 +79,13 @@ class _ActivityCardState extends State<ActivityCard> {
                           minHeight: screenHeight * 0.08,
                           minWidth: screenWidth * 0.3),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: <Widget>[
                           Container(
                             margin: EdgeInsets.only(left: 10),
-                            child: Text("widget.event.studentName",
+                            child: Text(widget.event.name,
                                 style: TextStyle(
                                   fontFamily: "HKGrotesk-Bold",
                                   fontSize: 20,
@@ -97,7 +97,7 @@ class _ActivityCardState extends State<ActivityCard> {
                           Container(
                             margin: EdgeInsets.only(left: 10),
                             child: Text(
-                              "widget.event.courseName",
+                              widget.event.eventType.name,
                               style: TextStyle(
                                 fontFamily: "HKGrotesk-Medium",
                                 fontSize: 15,
@@ -109,7 +109,7 @@ class _ActivityCardState extends State<ActivityCard> {
                           Container(
                             margin: EdgeInsets.only(left: 10),
                             child: Text(
-                              widget.event.name,
+                              widget.event.subject.name,
                               style: TextStyle(
                                 fontFamily: "HKGrotesk-Medium",
                                 fontSize: 15,
@@ -121,17 +121,7 @@ class _ActivityCardState extends State<ActivityCard> {
                         ],
                       ),
                     ),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: screenHeight * 0.08,
-                          minWidth: screenWidth * 0.3),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          EventScore("7.0"),
-                        ],
-                      ),
-                    ),
+
                   ],
                 ),
               ),
@@ -235,15 +225,15 @@ Widget EventScore([String score]) {
 Color getColor(String activityStatus) {
   //This Widget return a Divider that helps to know the activity status.
   switch (activityStatus) {
-    case "pending":
+    case "pendiente":
       {
         return Colors.amber;
       }
-    case "completed":
+    case "completo":
       {
         return Colors.green;
       }
-    case "cancelled":
+    case "cancelado":
       {
         return Colors.red;
       }
