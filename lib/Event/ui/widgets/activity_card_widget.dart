@@ -34,7 +34,7 @@ class _ActivityCardState extends State<ActivityCard> {
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          elevation: 1.5,
+          elevation: 0,
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: InkWell(
             onLongPress: () {
@@ -46,83 +46,140 @@ class _ActivityCardState extends State<ActivityCard> {
                 ),
               );
             },
-            child: Container(
-              margin: EdgeInsets.symmetric(vertical: 20),
-              child: Padding(
-                padding: const EdgeInsets.all(0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: screenHeight * 0.3,
-                          minWidth: screenWidth * 0.3),
-                      child: Column(
+            child: Card(
+              shadowColor: getColorByType(widget.event.eventType.id)[0],
+              borderOnForeground: false,
+              elevation: 0,
+              child: ClipPath(
+                clipper: ShapeBorderClipper(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+                child: Container(
+                  height: screenHeight / 5.2,
+                  width: screenWidth / 1.2,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(
+                        color: getColorByType(widget.event.eventType.id)[0],
+                        width: 10,
+                      ),
+                    ),
+                    color: getColorByType(widget.event.eventType.id)[1],
+                  ),
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text(
-                            widget.event.startTime +
-                                "-" +
-                                widget.event.endTime,
-                            style: TextStyle(
-                              fontFamily: "HKGrotesk-Medium",
-                              fontSize: 18,
-                              color: Color(0xFF344356).withOpacity(0.8),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Divider(widget.event),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: screenHeight * 0.08,
-                          minWidth: screenWidth * 0.3),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            child: Text(widget.event.name,
-                                style: TextStyle(
-                                  fontFamily: "HKGrotesk-Bold",
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF344356),
+                          Column(
+                            children: [
+                              Container(
+                                height: screenHeight / 30,
+                                width: screenHeight / 3.5,
+                                margin: EdgeInsets.only(left: 15, top: 10),
+                                child: Text(
+                                  widget.event.name,
+                                  style: TextStyle(
+                                      color: Color(0xFF0C0D4A),
+                                      fontSize: 20,
+                                      fontFamily: "sf-compact",
+                                      fontWeight: FontWeight.w700),
+                                  overflow: TextOverflow.fade,
+                                  maxLines: 1,
+                                  softWrap: false,
                                 ),
-                                textAlign: TextAlign.left),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            child: Text(
-                              widget.event.eventType.name,
-                              style: TextStyle(
-                                fontFamily: "HKGrotesk-Medium",
-                                fontSize: 15,
-                                color: Color(0xFF344356),
                               ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            child: Text(
-                              widget.event.subject.name,
-                              style: TextStyle(
-                                fontFamily: "HKGrotesk-Medium",
-                                fontSize: 15,
-                                color: Color(0xFF344356),
+                              Container(
+                                height: screenHeight / 20,
+                                width: screenHeight / 3.5,
+                                margin: EdgeInsets.only(left: 15),
+                                child: Text(
+                                  widget.event.startTime +
+                                      " - " +
+                                      widget.event.endTime,
+                                  style: TextStyle(
+                                    color: Color(0xFF787993),
+                                    fontSize: 20,
+                                    fontFamily: "sf-compact",
+                                  ),
+                                  overflow: TextOverflow.fade,
+                                  maxLines: 1,
+                                  softWrap: false,
+                                ),
                               ),
-                              textAlign: TextAlign.left,
-                            ),
+                              Container(
+                                height: screenHeight / 20,
+                                width: screenHeight / 3.5,
+                                margin: EdgeInsets.only(left: 15),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(left: 0),
+                                      width: 50.0,
+                                      height: 35.0,
+                                      decoration: new BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image: Image.asset(
+                                                    'assets/images/avatar1.png')
+                                                .image),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 50.0,
+                                      height: 35.0,
+                                      decoration: new BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image: Image.asset(
+                                                    'assets/images/avatar2.png')
+                                                .image),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 50.0,
+                                      height: 35.0,
+                                      decoration: new BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                            image: Image.asset(
+                                                    'assets/images/avatar3.png')
+                                                .image),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                height: screenHeight / 20,
+                                width: screenHeight / 20,
+                                margin: EdgeInsets.only(
+                                    left: 10, right: 20, top: 0),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    Icons.videocam,
+                                    color: getColorByType(
+                                        widget.event.eventType.id)[0],
+                                    size: 25,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ],
                       ),
                     ),
-
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -131,76 +188,62 @@ class _ActivityCardState extends State<ActivityCard> {
         actions: <Widget>[
           IconSlideAction(
             caption: 'Pendiente',
-            color: Color(0xFF5468FF),
-            icon: Icons.watch_later,
-            onTap: () => _ChangeEventState(1, "pending")
+            iconWidget: CircleAvatar(
+              backgroundColor: getColorByType(widget.event.eventType.id)[0],
+              child: Icon(
+                Icons.watch_later,
+                color: Colors.white,
+              ),
+              foregroundColor: Colors.white,
+            ),
+            foregroundColor: getColorByType(widget.event.eventType.id)[0],
+            onTap: () => _ChangeEventState(2, "completed"),
           ),
           IconSlideAction(
             caption: 'Completado',
-            color: Color(0xFF5468FF),
-            icon: Icons.check_circle,
-            onTap: () => _ChangeEventState(2, "completed")
+            iconWidget: CircleAvatar(
+              backgroundColor: getColorByType(widget.event.eventType.id)[0],
+              child: Icon(
+                Icons.check_circle,
+                color: Colors.white,
+              ),
+              foregroundColor: Colors.white,
+            ),
+            foregroundColor: getColorByType(widget.event.eventType.id)[0],
+            onTap: () => _ChangeEventState(2, "completed"),
           ),
-          IconSlideAction(
-            caption: 'Cancelado',
-            color: Color(0xFF5468FF),
-            icon: Icons.cancel,
-            onTap: () => _ChangeEventState(3, "cancelled"),
-          )
         ],
         secondaryActions: <Widget>[
           IconSlideAction(
-            caption: 'Editar',
-            color: Colors.black54,
-            icon: Icons.edit,
-            onTap: () => print("Editado ${widget.event.id}"),
-          ),
-          IconSlideAction(
             caption: 'Eliminar',
-            color: Colors.red,
-            icon: Icons.delete,
-            onTap: () => _DeleteEvent(),
+            iconWidget: CircleAvatar(
+              backgroundColor: Colors.red,
+              child: Icon(
+                Icons.check_circle,
+                color: Colors.white,
+              ),
+              foregroundColor: Colors.white,
+            ),
+            foregroundColor: Colors.red,
+            onTap: () => _ChangeEventState(2, "completed"),
           ),
         ],
       ),
     );
   }
 
-  void _ChangeEventState(int statusId,String statusName) {
-
-      widget.event.eventStatus.id = statusId;
-      widget.event.eventStatus.name = statusName;
-      Provider.of<EventProvider>(context, listen: false)
-          .changeEventStatus(widget.event);
-
+  void _ChangeEventState(int statusId, String statusName) {
+    widget.event.eventStatus.id = statusId;
+    widget.event.eventStatus.name = statusName;
+    Provider.of<EventProvider>(context, listen: false)
+        .changeEventStatus(widget.event);
   }
 
   void _DeleteEvent() {
-      Provider.of<EventProvider>(context, listen: false)
-          .deleteEvent(widget.event);
+    Provider.of<EventProvider>(context, listen: false)
+        .deleteEvent(widget.event);
   }
 }
-
-class Divider extends StatefulWidget {
-  @override
-  Event event;
-  Divider(this.event);
-  _DividerState createState() => _DividerState();
-}
-
-class _DividerState extends State<Divider> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      child: VerticalDivider(
-        color: getColor(widget.event.eventStatus.name),
-        thickness: 5,
-      ),
-    );
-  }
-}
-
 
 Widget EventScore([String score]) {
   if (score != null && double.tryParse(score) != null) {
@@ -222,25 +265,84 @@ Widget EventScore([String score]) {
   }
 }
 
-Color getColor(String activityStatus) {
-  //This Widget return a Divider that helps to know the activity status.
-  switch (activityStatus) {
-    case "pendiente":
-      {
-        return Colors.amber;
-      }
-    case "completo":
-      {
-        return Colors.green;
-      }
-    case "cancelado":
-      {
-        return Colors.red;
-      }
+List<Color> getColorByType(int eventType) {
+  List<Color> listaColores = List<Color>();
 
-    default:
+  switch (eventType) {
+    case 1:
       {
-        return Color(0xFF5468FF);
+        listaColores.add(Color(0xFF948BFF));
+        listaColores.add(Color(0xffEFEEFF));
+        return listaColores;
+      }
+    case 2:
+      {
+        listaColores.add(Color(0xFFFF6363));
+        listaColores.add(Color(0xFFFFF1F1));
+        return listaColores;
+      }
+    case 3:
+      {
+        listaColores.add(Color(0xFF1BC3D5));
+        listaColores.add(Color(0xFFE5F7F8));
+        return listaColores;
+      }
+    case 4:
+      {
+        listaColores.add(Color(0xFFFF9C2C));
+        listaColores.add(Color(0xFFFCF0E4));
+        return listaColores;
+      }
+    case 5:
+      {
+        listaColores.add(Color(0xFFC5D084));
+        listaColores.add(Color(0xFFE2F0CB));
+        return listaColores;
+      }
+  }
+}
+
+Icon getIconByType(Event event) {
+  switch (event.eventType.id) {
+    case 1:
+      {
+        return Icon(
+          Icons.assignment_sharp,
+          color: getColorByType(event.eventType.id)[0],
+          size: 25,
+        );
+      }
+    case 2:
+      {
+        return Icon(
+          Icons.call,
+          color: getColorByType(event.eventType.id)[0],
+          size: 25,
+        );
+      }
+    case 3:
+      {
+        return Icon(
+          Icons.videocam,
+          color: getColorByType(event.eventType.id)[0],
+          size: 25,
+        );
+      }
+    case 4:
+      {
+        return Icon(
+          Icons.grade,
+          color: getColorByType(event.eventType.id)[0],
+          size: 25,
+        );
+      }
+    case 5:
+      {
+        return Icon(
+          Icons.group,
+          color: getColorByType(event.eventType.id)[0],
+          size: 25,
+        );
       }
   }
 }

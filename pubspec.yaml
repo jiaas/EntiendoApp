@@ -34,6 +34,10 @@ flutter:
       - assets/images/
 
   fonts:
+   - family: sf-compact
+     fonts:
+      - asset: assets/fonts/sf-compact.otf
+
    - family: HKGrotesk-Regular
      fonts:
        - asset: assets/fonts/HKGrotesk-Regular.otf

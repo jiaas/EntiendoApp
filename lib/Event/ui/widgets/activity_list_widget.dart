@@ -6,12 +6,12 @@ class ActivityList extends StatefulWidget {
   List<Event> events;
 
   ActivityList(this.events);
+
   @override
   _ActivityListState createState() => _ActivityListState();
 }
 
 class _ActivityListState extends State<ActivityList> {
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -20,7 +20,9 @@ class _ActivityListState extends State<ActivityList> {
         child: ListView(
           padding: EdgeInsets.all(0),
           children: <Widget>[
+
             getEvents(widget.events),
+
           ],
         ),
       ),
@@ -32,44 +34,11 @@ class _ActivityListState extends State<ActivityList> {
   }
 }
 
-
-
-
-
-/*class ActivityList extends StatelessWidget {
-  final List<Event> events;
-
-  ActivityList(
-    this.events,
-  );
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: RefreshIndicator(
-        onRefresh: refresh,
-        child: ListView(
-          padding: EdgeInsets.all(0),
-          children: <Widget>[
-            getEvents(this.events),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Future<void> refresh() {
-    return Future.value();
-  }
-}*/
-
 Widget getEvents(List<Event> eventos) {
   if (eventos.toList().length > 0) {
     eventos.sort((a, b) => a.endTime.compareTo(b.startTime));
     return new Column(
-        children: eventos
-            .map((item) => new ActivityCard(item))
-            .toList());
+        children: eventos.map((item) => new ActivityCard(item)).toList());
   } else {
     return Card(
       elevation: 1.5,

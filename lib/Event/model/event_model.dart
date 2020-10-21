@@ -20,17 +20,16 @@ class Event {
   Subject subject = Subject();
 
   //Constructor
-  Event({
-    this.id,
-    this.name,
-    this.date,
-    this.startTime,
-    this.endTime,
-    this.eventStatus,
-    this.eventType,
-    this.evaluation,
-    this.subject
-  });
+  Event(
+      {this.id,
+      this.name,
+      this.date,
+      this.startTime,
+      this.endTime,
+      this.eventStatus,
+      this.eventType,
+      this.evaluation,
+      this.subject});
 
   //Parse a <- List of Events -> from Json List
   List<Event> getEventosFromJsonList(List<dynamic> jsonList) {
@@ -54,11 +53,19 @@ class Event {
     startTime = json['start_time'];
     endTime = json['end_time'];
 
-    if(json['status'] != null) eventStatus = EventStatus.fromJsonMap(json['status']);
-    if(json['type'] != null) eventType = EventType.fromJsonMap(json['type']);
-    if(json['evaluation'] != null) evaluation = Evaluation.fromJsonMap(json['evaluation']);
-    if(json['subject'] != null) subject = Subject.fromJsonMap(json['subject']);
+    if (json['status'] != null) eventStatus = EventStatus.fromJsonMap(json['status']);
 
+    if (json['type'] != null) eventType = EventType.fromJsonMap(json['type']);
 
+    if (json['evaluation'] != null) {
+      evaluation = Evaluation.fromJsonMap(json['evaluation']);
+    } else {
+      evaluation = null;
+    }
+    if (json['subject'] != null) {
+      subject = Subject.fromJsonMap(json['subject']);
+    } else {
+      subject = null;
+    }
   }
 }

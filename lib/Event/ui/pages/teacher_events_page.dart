@@ -13,21 +13,34 @@ class _TeacherEventsPageState extends State<TeacherEventsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF3F5F9),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SafeArea(
-            child: SizedBox(height: 20),
-          ),
-          CalendarTimeline(),
-          SizedBox(
-            height: 10,
-          ),
-          _getEventsFromProvider(context),
-          //getEventsCards(context),
-        ],
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SafeArea(
+              child: Container(),
+            ),
+            Container(
+              margin: EdgeInsets.all(10),
+              child: Text(
+                'Agenda',
+                style: TextStyle(
+                    fontSize: 45,
+                    fontFamily: "sf-compact",
+                    color: Color(0xFF121254),
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CalendarTimeline(),
+            _getEventsFromProvider(context),
+          ],
+        ),
       ),
     );
   }

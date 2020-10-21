@@ -34,13 +34,16 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
       child: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: EdgeInsets.only(left: 0),
             child: Card(
-              elevation: 1.5,
+              elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15.0),
-                    bottomLeft: Radius.circular(15.0)),
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0),
+                  bottomLeft: Radius.circular(15.0),
+                ),
               ),
               margin: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
               child: Padding(
@@ -53,7 +56,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                       child: DatePicker(
                         DateTime.now(),
                         initialSelectedDate: DateTime.now(),
-                        selectionColor: Color(0xFF5468FF),
+                        selectionColor: Color(0x00FF6D49D7),
                         selectedTextColor: Colors.white,
                         locale: "es_ES",
                         onDateChange: (date) {
@@ -75,7 +78,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                     SizedBox(
                       height: 5,
                     ),
-                    SearchBar(),
+                    //SearchBar(),
                   ],
                 ),
               ),
