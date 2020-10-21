@@ -41,7 +41,7 @@ Widget getEvents(List<Event> eventos) {
         children: eventos.map((item) => new ActivityCard(item)).toList());
   } else {
     return Card(
-      elevation: 1.5,
+      elevation: 0,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Container(
         height: 300,
