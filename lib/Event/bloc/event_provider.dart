@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 export 'package:entiendo/Event/model/event_model.dart';
 
 class EventProvider extends ChangeNotifier {
-  String _url = '192.168.0.81:3333';
+  String _url = '192.168.0.75:3333';
 
   String date = DateFormat("dd-MM-yyyy").format(
     DateTime.parse(
@@ -30,12 +30,13 @@ class EventProvider extends ChangeNotifier {
   }
 
   Future changeEventStatus(Event event) async {
-    final url = Uri.http(_url, '/events/${event.id}', {'eventStatusId': event.eventStatus.id.toString()});
+    final url = Uri.http(_url, '/events/${event.id}',
+        {'eventStatusId': event.eventStatus.id.toString()});
     final response = await http.put(url);
     notifyListeners();
   }
 
-  Future deleteEvent(Event event) async{
+  Future deleteEvent(Event event) async {
     final url = Uri.http(_url, '/events/${event.id}');
     final response = await http.delete(url);
     notifyListeners();

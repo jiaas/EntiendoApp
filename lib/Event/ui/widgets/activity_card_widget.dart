@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:entiendo/Event/bloc/event_provider.dart';
 import 'package:entiendo/Event/model/event_model.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 import 'modal_show_event.dart';
@@ -27,156 +26,161 @@ class _ActivityCardState extends State<ActivityCard> {
     final screenWidth = _mediaQueryData.size.width;
     final screenHeight = _mediaQueryData.size.height;
 
-    return FittedBox(
-      child: Slidable(
-        actionPane: SlidableStrechActionPane(),
-        actionExtentRatio: 0.25,
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          elevation: 0,
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: InkWell(
-            onLongPress: () {
-              showCupertinoModalBottomSheet(
-                context: context,
-                builder: (context, scrollController) => Container(
-                  height: screenHeight / 2,
-                  child: ModalShowEvent(widget.event),
-                ),
-              );
-            },
-            child: Card(
-              shadowColor: getColorByType(widget.event.eventType.id)[0],
-              borderOnForeground: false,
-              elevation: 0,
-              child: ClipPath(
-                clipper: ShapeBorderClipper(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+    return FadeIn(
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeInToLinear,
+      child: FittedBox(
+        child: Slidable(
+          actionPane: SlidableStrechActionPane(),
+          actionExtentRatio: 0.25,
+          child: Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0)),
+            elevation: 0,
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: InkWell(
+              onLongPress: () {
+                showCupertinoModalBottomSheet(
+                  context: context,
+                  builder: (context, scrollController) => Container(
+                    height: screenHeight / 2,
+                    child: ModalShowEvent(widget.event),
                   ),
-                ),
-                child: Container(
-                  height: screenHeight / 5.2,
-                  width: screenWidth / 1.2,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      left: BorderSide(
-                        color: getColorByType(widget.event.eventType.id)[0],
-                        width: 10,
-                      ),
+                );
+              },
+              child: Card(
+                shadowColor: getColorByType(widget.event.eventType.id)[0],
+                borderOnForeground: false,
+                elevation: 0,
+                child: ClipPath(
+                  clipper: ShapeBorderClipper(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
                     ),
-                    color: getColorByType(widget.event.eventType.id)[1],
                   ),
-                  alignment: Alignment.centerLeft,
                   child: Container(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            children: [
-                              Container(
-                                height: screenHeight / 30,
-                                width: screenHeight / 3.5,
-                                margin: EdgeInsets.only(left: 15, top: 10),
-                                child: Text(
-                                  widget.event.name,
-                                  style: TextStyle(
-                                      color: Color(0xFF0C0D4A),
+                    height: screenHeight / 5.2,
+                    width: screenWidth / 1.2,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        left: BorderSide(
+                          color: getColorByType(widget.event.eventType.id)[0],
+                          width: 10,
+                        ),
+                      ),
+                      color: getColorByType(widget.event.eventType.id)[1],
+                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Container(
+                                  height: screenHeight / 30,
+                                  width: screenHeight / 3.5,
+                                  margin: EdgeInsets.only(left: 15, top: 10),
+                                  child: Text(
+                                    widget.event.name,
+                                    style: TextStyle(
+                                        color: Color(0xFF20205E),
+                                        fontSize: 20,
+                                        fontFamily: "sf-compact",
+                                        fontWeight: FontWeight.w700),
+                                    overflow: TextOverflow.fade,
+                                    maxLines: 1,
+                                    softWrap: false,
+                                  ),
+                                ),
+                                Container(
+                                  height: screenHeight / 20,
+                                  width: screenHeight / 3.5,
+                                  margin: EdgeInsets.only(left: 15),
+                                  child: Text(
+                                    widget.event.startTime +
+                                        " - " +
+                                        widget.event.endTime,
+                                    style: TextStyle(
+                                      color: Color(0xFF787993),
                                       fontSize: 20,
                                       fontFamily: "sf-compact",
-                                      fontWeight: FontWeight.w700),
-                                  overflow: TextOverflow.fade,
-                                  maxLines: 1,
-                                  softWrap: false,
-                                ),
-                              ),
-                              Container(
-                                height: screenHeight / 20,
-                                width: screenHeight / 3.5,
-                                margin: EdgeInsets.only(left: 15),
-                                child: Text(
-                                  widget.event.startTime +
-                                      " - " +
-                                      widget.event.endTime,
-                                  style: TextStyle(
-                                    color: Color(0xFF787993),
-                                    fontSize: 20,
-                                    fontFamily: "sf-compact",
-                                  ),
-                                  overflow: TextOverflow.fade,
-                                  maxLines: 1,
-                                  softWrap: false,
-                                ),
-                              ),
-                              Container(
-                                height: screenHeight / 20,
-                                width: screenHeight / 3.5,
-                                margin: EdgeInsets.only(left: 15),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.only(left: 0),
-                                      width: 50.0,
-                                      height: 35.0,
-                                      decoration: new BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: Image.asset(
-                                                    'assets/images/avatar1.png')
-                                                .image),
-                                      ),
                                     ),
-                                    Container(
-                                      width: 50.0,
-                                      height: 35.0,
-                                      decoration: new BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: Image.asset(
-                                                    'assets/images/avatar2.png')
-                                                .image),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 50.0,
-                                      height: 35.0,
-                                      decoration: new BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: Image.asset(
-                                                    'assets/images/avatar3.png')
-                                                .image),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: screenHeight / 20,
-                                width: screenHeight / 20,
-                                margin: EdgeInsets.only(
-                                    left: 10, right: 20, top: 0),
-                                child: CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  child: Icon(
-                                    Icons.videocam,
-                                    color: getColorByType(
-                                        widget.event.eventType.id)[0],
-                                    size: 25,
+                                    overflow: TextOverflow.fade,
+                                    maxLines: 1,
+                                    softWrap: false,
                                   ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ],
+                                Container(
+                                  height: screenHeight / 20,
+                                  width: screenHeight / 3.5,
+                                  margin: EdgeInsets.only(left: 15),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(left: 0),
+                                        width: 50.0,
+                                        height: 35.0,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              image: Image.asset(
+                                                      'assets/images/avatar1.png')
+                                                  .image),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 50.0,
+                                        height: 35.0,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              image: Image.asset(
+                                                      'assets/images/avatar2.png')
+                                                  .image),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 50.0,
+                                        height: 35.0,
+                                        decoration: new BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              image: Image.asset(
+                                                      'assets/images/avatar3.png')
+                                                  .image),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Container(
+                                  height: screenHeight / 20,
+                                  width: screenHeight / 20,
+                                  margin: EdgeInsets.only(
+                                      left: 10, right: 20, top: 0),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.videocam,
+                                      color: getColorByType(
+                                          widget.event.eventType.id)[0],
+                                      size: 25,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -184,50 +188,50 @@ class _ActivityCardState extends State<ActivityCard> {
               ),
             ),
           ),
+          actions: <Widget>[
+            IconSlideAction(
+              caption: 'Pendiente',
+              iconWidget: CircleAvatar(
+                backgroundColor: getColorByType(widget.event.eventType.id)[0],
+                child: Icon(
+                  Icons.watch_later,
+                  color: Colors.white,
+                ),
+                foregroundColor: Colors.white,
+              ),
+              foregroundColor: getColorByType(widget.event.eventType.id)[0],
+              onTap: () => _ChangeEventState(2, "completed"),
+            ),
+            IconSlideAction(
+              caption: 'Completado',
+              iconWidget: CircleAvatar(
+                backgroundColor: getColorByType(widget.event.eventType.id)[0],
+                child: Icon(
+                  Icons.check_circle,
+                  color: Colors.white,
+                ),
+                foregroundColor: Colors.white,
+              ),
+              foregroundColor: getColorByType(widget.event.eventType.id)[0],
+              onTap: () => _ChangeEventState(2, "completed"),
+            ),
+          ],
+          secondaryActions: <Widget>[
+            IconSlideAction(
+              caption: 'Eliminar',
+              iconWidget: CircleAvatar(
+                backgroundColor: Colors.red,
+                child: Icon(
+                  Icons.check_circle,
+                  color: Colors.white,
+                ),
+                foregroundColor: Colors.white,
+              ),
+              foregroundColor: Colors.red,
+              onTap: () => _ChangeEventState(2, "completed"),
+            ),
+          ],
         ),
-        actions: <Widget>[
-          IconSlideAction(
-            caption: 'Pendiente',
-            iconWidget: CircleAvatar(
-              backgroundColor: getColorByType(widget.event.eventType.id)[0],
-              child: Icon(
-                Icons.watch_later,
-                color: Colors.white,
-              ),
-              foregroundColor: Colors.white,
-            ),
-            foregroundColor: getColorByType(widget.event.eventType.id)[0],
-            onTap: () => _ChangeEventState(2, "completed"),
-          ),
-          IconSlideAction(
-            caption: 'Completado',
-            iconWidget: CircleAvatar(
-              backgroundColor: getColorByType(widget.event.eventType.id)[0],
-              child: Icon(
-                Icons.check_circle,
-                color: Colors.white,
-              ),
-              foregroundColor: Colors.white,
-            ),
-            foregroundColor: getColorByType(widget.event.eventType.id)[0],
-            onTap: () => _ChangeEventState(2, "completed"),
-          ),
-        ],
-        secondaryActions: <Widget>[
-          IconSlideAction(
-            caption: 'Eliminar',
-            iconWidget: CircleAvatar(
-              backgroundColor: Colors.red,
-              child: Icon(
-                Icons.check_circle,
-                color: Colors.white,
-              ),
-              foregroundColor: Colors.white,
-            ),
-            foregroundColor: Colors.red,
-            onTap: () => _ChangeEventState(2, "completed"),
-          ),
-        ],
       ),
     );
   }
@@ -295,7 +299,7 @@ List<Color> getColorByType(int eventType) {
       }
     case 5:
       {
-        listaColores.add(Color(0xFFC5D084));
+        listaColores.add(Color(0xFF9da669));
         listaColores.add(Color(0xFFE2F0CB));
         return listaColores;
       }

@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import 'search_bar_widget.dart';
-
 DateTime fecha = DateTime.now();
 
 class CalendarTimeline extends StatefulWidget {
@@ -56,7 +54,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                       child: DatePicker(
                         DateTime.now(),
                         initialSelectedDate: DateTime.now(),
-                        selectionColor: Color(0x00FF6D49D7),
+                        selectionColor: Color(0x00FF20205E),
                         selectedTextColor: Colors.white,
                         locale: "es_ES",
                         onDateChange: (date) {

@@ -30,7 +30,7 @@ class _TeacherEventsPageState extends State<TeacherEventsPage> {
                 style: TextStyle(
                     fontSize: 45,
                     fontFamily: "sf-compact",
-                    color: Color(0xFF121254),
+                    color: Color(0xFF20205E),
                     fontWeight: FontWeight.w700),
               ),
             ),

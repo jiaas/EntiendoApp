@@ -17,6 +17,7 @@ dependencies:
   modal_bottom_sheet: ^0.2.2
   date_format: ^1.0.9
   flutter_slidable:
+  flutter_fadein: ^1.1.1
 
   firebase_core: ^0.4.5
   firebase_auth: ^0.16.1
