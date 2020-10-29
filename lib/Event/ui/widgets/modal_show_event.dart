@@ -49,7 +49,7 @@ class ModalShowEvent extends StatelessWidget {
                           color: Color(0xFFA3A3B5),
                           fontFamily: "sf-compact",
                           fontSize: 23,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
@@ -73,7 +73,6 @@ class ModalShowEvent extends StatelessWidget {
                                 child: Icon(
                                   Icons.videocam,
                                   color: _getColorByType(event)[0],
-                                  //getColorByType(widget.event.eventType.id)[0],
                                   size: 25,
                                 ),
                               ),
@@ -88,12 +87,146 @@ class ModalShowEvent extends StatelessWidget {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "Hora de Inicio",
+                            style: TextStyle(
+                              color: Color(0xFFA3A3B5),
+                              fontFamily: "sf-compact",
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            "Hora de fin",
+                            style: TextStyle(
+                              color: Color(0xFFA3A3B5),
+                              fontFamily: "sf-compact",
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Divider(thickness: 1.5),
-                      ), //event.eventType.id),
-                      /*              Row(
-                        children: <Widget>[
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: _getColorByType(event)[1],
+                                  borderRadius: new BorderRadius.all(
+                                      Radius.circular(40.0)),
+                                ),
+                                padding: EdgeInsets.all(8),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          left: 10, right: 10, top: 0),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          Icons.watch_later,
+                                          color: _getColorByType(event)[0],
+                                          size: 25,
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: TextFormField(
+                                        initialValue: event.startTime,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none),
+                                        style: TextStyle(
+                                            color: _getColorByType(event)[0],
+                                            fontFamily: "sf-compact",
+                                            fontSize: 20),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 4),
+                                      child: Text(
+                                        "hrs. ",
+                                        style: TextStyle(
+                                            color: _getColorByType(event)[0],
+                                            fontFamily: "sf-compact",
+                                            fontSize: 15),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 40,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: _getColorByType(event)[1],
+                                  borderRadius: new BorderRadius.all(
+                                      Radius.circular(40.0)),
+                                ),
+                                padding: EdgeInsets.all(8),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          left: 10, right: 10, top: 0),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          Icons.watch_later,
+                                          color: _getColorByType(event)[0],
+                                          size: 25,
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: TextFormField(
+                                        initialValue: event.endTime,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none),
+                                        style: TextStyle(
+                                            color: _getColorByType(event)[0],
+                                            fontFamily: "sf-compact",
+                                            fontSize: 20),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 4),
+                                      child: Text(
+                                        "hrs. ",
+                                        style: TextStyle(
+                                            color: _getColorByType(event)[0],
+                                            fontFamily: "sf-compact",
+                                            fontSize: 15),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
                           Icon(
                             Icons.calendar_today,
                             color: Colors.black26,
@@ -102,67 +235,20 @@ class ModalShowEvent extends StatelessWidget {
                             width: 10,
                           ),
                           Container(
-                            width: 105,
-                            child: TextFormField(
-                              initialValue:
-                              "${(formatDate(DateTime.parse(event.date.toString()), [
-                                dd,
-                                '-',
-                                mm,
-                                '-',
-                                yyyy
-                              ]))}",
+                            child: Text(
+                              "Jueves, 22 de Octubre",
                               style: TextStyle(
-                                  color: Color(0xFF0C0D4A),
-                                  fontSize: 20,
-                                  fontFamily: "sf-compact",
-                                  fontWeight: FontWeight.w600),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
+                                color: Color(0xFFA8A9BA),
+                                fontFamily: "sf-compact",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
                               ),
                             ),
                           ),
                         ],
-                      ),*/
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.watch_later,
-                            color: Colors.black26,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "${event.startTime} - ${event.endTime}",
-                            style: TextStyle(
-                                color: Color(0xFF0C0D4A),
-                                fontSize: 20,
-                                fontFamily: "sf-compact",
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
                       ),
                       Container(
-                        padding: EdgeInsets.only(left: 35),
-                        child: Text(
-                          "Jueves, 22 de Octubre",
-                          style: TextStyle(
-                            color: Color(0xFFA8A9BA),
-                            fontFamily: "sf-compact",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 30, top: 15),
+                        padding: EdgeInsets.only(left: 30, top: 15, bottom: 5),
                         child: Row(
                           children: [
                             Container(
@@ -201,10 +287,6 @@ class ModalShowEvent extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 500,
-                      ),
-                      //
                     ],
                   ),
                 ),
