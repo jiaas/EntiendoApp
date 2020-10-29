@@ -1,12 +1,10 @@
 import 'package:entiendo/Event/bloc/event_provider.dart';
 import 'package:entiendo/Event/model/event_model.dart';
+import 'package:entiendo/Event/ui/widgets/modal_show_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
-
-import 'modal_show_event.dart';
 
 class ActivityCard extends StatefulWidget {
   Event event;
@@ -40,13 +38,21 @@ class _ActivityCardState extends State<ActivityCard> {
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: InkWell(
               onLongPress: () {
-                showCupertinoModalBottomSheet(
-                  context: context,
-                  builder: (context, scrollController) => Container(
-                    height: screenHeight / 2,
-                    child: ModalShowEvent(widget.event),
-                  ),
-                );
+                showModalBottomSheet(
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AnimatedPadding(
+                        padding: MediaQuery.of(context).viewInsets,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.decelerate,
+                        child: Container(
+                          child: Wrap(
+                            children: <Widget>[ModalShowEvent(widget.event)],
+                          ),
+                        ),
+                      );
+                    });
               },
               child: Card(
                 shadowColor: getColorByType(widget.event.eventType.id)[0],
