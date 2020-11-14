@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 export 'package:entiendo/Event/model/event_model.dart';
 
 class EventProvider extends ChangeNotifier {
-  String _url = '192.168.0.75:3333';
+  String _url = '192.168.1.87:3333';
 
   String date = DateFormat("dd-MM-yyyy").format(
     DateTime.parse(

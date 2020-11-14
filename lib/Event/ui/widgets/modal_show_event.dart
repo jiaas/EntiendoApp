@@ -1,3 +1,4 @@
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:entiendo/Event/model/event_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class ModalShowEvent extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 30, left: 30, right: 30),
+          padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
           child: TextFormField(
             initialValue: "${event.name}",
             style: TextStyle(
@@ -32,201 +33,202 @@ class ModalShowEvent extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Tipo de Reunión",
-                style: TextStyle(
-                  color: Color(0xFFA3A3B5),
-                  fontFamily: "sf-compact",
-                  fontSize: 23,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: _getColorByType(event)[1],
-                  borderRadius: new BorderRadius.all(Radius.circular(40.0)),
-                ),
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 10, right: 20, top: 0),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Icon(
-                          Icons.videocam,
-                          color: _getColorByType(event)[0],
-                          size: 25,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      event.eventType.name,
-                      style: TextStyle(
-                          color: _getColorByType(event)[0],
-                          fontFamily: "sf-compact",
-                          fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    "Hora de Inicio",
-                    style: TextStyle(
-                      color: Color(0xFFA3A3B5),
-                      fontFamily: "sf-compact",
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Text(
-                    "Hora de fin",
-                    style: TextStyle(
-                      color: Color(0xFFA3A3B5),
-                      fontFamily: "sf-compact",
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: Text(
+                      "Tipo de Reunión",
+                      style: TextStyle(
+                        color: Color(0xFFA3A3B5),
+                        fontFamily: "sf-compact",
+                        fontSize: 23,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: _getColorByType(event)[1],
-                          borderRadius:
-                              new BorderRadius.all(Radius.circular(40.0)),
-                        ),
-                        padding: EdgeInsets.all(8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin:
-                                  EdgeInsets.only(left: 10, right: 10, top: 0),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.watch_later,
-                                  color: _getColorByType(event)[0],
-                                  size: 25,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: TextFormField(
-                                maxLength: 4,
-                                maxLengthEnforced: true,
-                                keyboardType: TextInputType.number,
-                                initialValue: event.startTime,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  counterText: "",
-                                ),
-                                style: TextStyle(
-                                    color: _getColorByType(event)[0],
-                                    fontFamily: "sf-compact",
-                                    fontSize: 20),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 4),
-                              child: Text(
-                                "hrs. ",
-                                style: TextStyle(
-                                    color: _getColorByType(event)[0],
-                                    fontFamily: "sf-compact",
-                                    fontSize: 15),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: _getColorByType(event)[1],
+                      borderRadius: new BorderRadius.all(Radius.circular(40.0)),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: _getColorByType(event)[1],
-                          borderRadius:
-                              new BorderRadius.all(Radius.circular(40.0)),
+                    padding:
+                        EdgeInsets.only(top: 8, bottom: 8, left: 0, right: 8),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 10, right: 15),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.videocam,
+                              color: _getColorByType(event)[0],
+                              size: 25,
+                            ),
+                          ),
                         ),
-                        padding: EdgeInsets.all(8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              margin:
-                                  EdgeInsets.only(left: 10, right: 10, top: 0),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  Icons.watch_later,
-                                  color: _getColorByType(event)[0],
-                                  size: 25,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: TextFormField(
-                                initialValue: event.endTime,
-                                decoration:
-                                    InputDecoration(border: InputBorder.none),
-                                style: TextStyle(
-                                    color: _getColorByType(event)[0],
-                                    fontFamily: "sf-compact",
-                                    fontSize: 20),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 4),
-                              child: Text(
-                                "hrs. ",
-                                style: TextStyle(
-                                    color: _getColorByType(event)[0],
-                                    fontFamily: "sf-compact",
-                                    fontSize: 15),
-                              ),
-                            ),
-                          ],
+                        Text(
+                          event.eventType.name,
+                          style: TextStyle(
+                              color: _getColorByType(event)[0],
+                              fontFamily: "sf-compact",
+                              fontSize: 20),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 10,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          "Hora de Inicio",
+                          style: TextStyle(
+                            color: Color(0xFFA3A3B5),
+                            fontFamily: "sf-compact",
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: _getColorByType(event)[1],
+                            borderRadius:
+                                new BorderRadius.all(Radius.circular(40.0)),
+                          ),
+                          padding: EdgeInsets.all(8),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(
+                                    left: 10, right: 10, top: 0),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    Icons.watch_later,
+                                    color: _getColorByType(event)[0],
+                                    size: 25,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: DateTimePicker(
+                                  type: DateTimePickerType.time,
+                                  initialValue: event.startTime,
+                                  style: TextStyle(
+                                      color: _getColorByType(event)[0],
+                                      fontFamily: "sf-compact",
+                                      fontSize: 20),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    counterText: "",
+                                  ),
+                                  onChanged: (val) => print(val),
+                                  validator: (val) {
+                                    print(val);
+                                    return null;
+                                  },
+                                  onSaved: (val) => print(val),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          "Hora de Término",
+                          style: TextStyle(
+                            color: Color(0xFFA3A3B5),
+                            fontFamily: "sf-compact",
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: _getColorByType(event)[1],
+                            borderRadius:
+                                new BorderRadius.all(Radius.circular(40.0)),
+                          ),
+                          padding: EdgeInsets.all(8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(
+                                    left: 10, right: 10, top: 0),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    Icons.watch_later,
+                                    color: _getColorByType(event)[0],
+                                    size: 25,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: DateTimePicker(
+                                  type: DateTimePickerType.time,
+                                  initialValue: event.endTime,
+                                  style: TextStyle(
+                                      color: _getColorByType(event)[0],
+                                      fontFamily: "sf-compact",
+                                      fontSize: 20),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    counterText: "",
+                                  ),
+                                  onChanged: (val) => print(val),
+                                  validator: (val) {
+                                    print(val);
+                                    print(val + val);
+                                    return null;
+                                  },
+                                  onSaved: (val) => print(val),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 4),
+                                child: Text(
+                                  "hrs. ",
+                                  style: TextStyle(
+                                      color: _getColorByType(event)[0],
+                                      fontFamily: "sf-compact",
+                                      fontSize: 15),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 5, left: 30, right: 30, bottom: 20),
+          padding: EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 20),
           child: CupertinoButton(
             padding: EdgeInsets.all(15),
             onPressed: () {},
